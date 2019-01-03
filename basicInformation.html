@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本信息</title>
+    <link rel="stylesheet" href="./css/alert.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/pagination/style/pagination.css">
+   
+    <style>
+        table tr td {
+            vertical-align: middle!important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 左边的侧边栏 -->
+    <div class="aside" id="aside">
+        <!-- 左上部分的用户信息 -->
+        <div class="profile">
+            <div class="avatar" id="aa">
+                <img src="./images/head2.png" alt="" class='img-circle'>
+            </div>
+            <h4></h4>
+        </div>
+
+        <!--左下部分的导航-->
+        <div class="menu">
+           <ul>
+                <li class="active">
+                    <a href="./basicInformation.html" class="slide" style="cursor: pointer;">基本信息</a>
+                </li>
+                <li>
+                    <a href="./inboundManage.html" class="slide" style="cursor: pointer;">入库管理</a>
+                </li>
+                <li>
+                    <a href="./outboundManage.html" class="slide" style="cursor: pointer;">出库管理</a>
+                </li>
+                <li >
+                    <a href="./inventoryManage.html" class="slide" style="cursor: pointer;">盘点管理</a>
+                </li>
+                <!-- <li>
+                    <a href="./cargoPositionManage.html" class="slide" style="cursor: pointer;">货位管理</a>
+                </li>
+                <li>
+                    <a href="./transferLibraryManage.html" class="slide" style="cursor: pointer;">移库管理</a>
+                </li>
+                <li>
+                    <a href="./detectionManage.html" class="slide" style="cursor: pointer;">检测管理</a>
+                </li> -->
+                <li>
+                    <a href="./carryForwardManage.html" class="slide" style="cursor: pointer;">结转管理</a>
+                </li>
+                <!-- <li>
+                    <a href="./inventoryWarning.html" class="slide" style="cursor: pointer;">库存预警</a>
+                </li> -->
+                <li>
+                    <a href="./statisticalReports.html" class="slide" target="_blank" style="cursor: pointer;">统计报表</a>
+                </li>
+                <li>
+                    <a href="./board.html" class="slide" target="_blank" style="cursor: pointer;">看板管理</a>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">系统管理<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="./conLog.html">系统日志</a> </li>
+                        <li><a href="./inventoryWarning.html">库存预警</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 右边主体部分 -->
+    <div class="main">
+        <!-- 右边上部分工具部分 -->
+        <div class="header">
+                <!-- 导航条部分 -->
+             <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="javascript:;"><span class='fa fa-navicon'></span></a>
+                        <div id="marquee2" style="width: 300px; visibility: hidden;">
+                            <ul>
+                                <li>
+                                    <a>库存上限预警<span style="margin-left: 200px;"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a data-toggle="modal" data-target="#personalInformation"> <span class='fa fa-user-circle'></span> 个人中心</a>
+                            </li>
+                            <li><a data-toggle="modal" data-target="#changePassword"><span class='fa fa-key fa-fw'></span>修改密码</a></li>
+                            <li><a data-toggle="modal" data-target="#logOut"><span class='fa fa-sign-out'></span>退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <!-- 右边下部分 ，网站的主体页面-->
+        <div class="body">
+            <!-- 面包屑导航 -->
+            <ol class="breadcrumb">
+                <!-- <li>首页</li> -->
+                <li>基本信息</li>
+            </ol>
+            <!-- 面板，搜索框与表格 -->
+            <div class="panel panel-default">
+                <div class="panel-body" style="margin-top: 15px;">
+                    <ul class="nav nav-tabs" style="margin-bottom: 20px;">
+                        <li role="presentation" class="active"><a href="#userManagement" data-toggle="tab" id='M-box'>用户管理</a></li>                     
+                        <li role="presentation"><a href="#goodsManagement" data-toggle="tab" id='M-box2'>物品管理</a></li>                     
+                        <!--<li role="presentation"><a href="#storeManagement" data-toggle="tab" id='M-box3'>仓库管理</a></li>
+                        <li role="presentation"><a href="#reservoirManagement" data-toggle="tab" id='M-box4'>库区管理</a></li>-->
+                      <!--  <li role="presentation"><a href="#queryPosition" data-toggle="tab" id='M-box5'>货位管理</a></li>-->
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <!-- 用户管理 -->
+                        <div class="tab-pane fade in active" id="userManagement">
+                            <!-- 搜索框 -->
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="searchUser" style='margin-left:10px ' class='special'>用户名查询：</label>
+                                        <input class="form-control" style="height: 34px;" placeholder="请输入用户名" id='searchUser'>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" style='margin-left:20px; outline: none;' id='searchUserBtn' >查询</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser" style="outline: none;">新增用户</button>
+                                </form>
+                            </div>
+                            <!-- 表格 -->
+                            <table id="mytable1" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th style='width:3%'>序号</th>
+                                    <th style='width:4%'>账号</th>
+                                    <th style='width:4%'>用户名</th>
+                                    <th style='width:4%'>角色</th>
+                                    <th style='width:4%'>手机号码</th>
+                                    <th style='width:4%'>邮箱</th>
+                                    <th style='width:10%'>备注</th>
+                                    <th style='width:6%'>操作</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                     
+                        <!-- 物品管理 -->
+                        <div class="tab-pane fade in" id="goodsManagement">
+                            <!-- 搜索框 -->
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="searchGoods" class='special'>物品查询：</label>
+                                        <input type="text" class="form-control" id="searchGoods"  placeholder="请输入物品名称">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" style='margin-left:20px;outline: none;' id='searchGoodsBtn'>查询</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newGoods" style="outline: none;" >新增物品</button>
+                                </form>
+                            </div>
+                            <!-- 表格 -->
+                            <table id="mytable3" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th>序号</th>
+                                    <th>物品编号</th>
+                                   <!-- <th>物品名称</th>-->
+                                    <th>物品名称</th>
+                                   
+                                    <th>规格</th>
+                                    <th>单位</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                      
+                        <!-- 仓库管理 -->
+                        <div class="tab-pane fade in" id="storeManagement">
+                            <!-- 搜索框 -->
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="searchWarehouse" class='special'>仓库查询：</label>
+                                        <input type="text" class="form-control" id="searchWarehouse" placeholder="请输入仓库名称">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" style='margin-left:20px; outline: none;' id='searchWarehouseBtn' >查询</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newStore" style="outline: none;">新增仓库</button>
+                                </form>
+                            </div>
+                            <!-- 表格 -->
+                            <table id="mytable5" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th>序号</th>
+                                    <th>仓库编号</th>
+                                    <th>仓库名称</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <!-- 库区管理 -->
+                        <div class="tab-pane fade in" id="reservoirManagement">
+                            <!-- 搜索框 -->
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="searchQueryarea" class='special'>库区查询：</label>
+                                        <input type="text" class="form-control" id="searchQueryarea" placeholder="请输入库区名称">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" style='margin-left:20px; outline: none;' id='searchQueryareaBtn'>查询</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newReservoir" style="outline: none;">新增库区</button>
+                                </form>
+                            </div>
+                            <!-- 表格 -->
+                            <table id="mytable6" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th>序号</th>
+                                    <th>库区编号</th>
+                                    <th>库区名称</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 货位管理 -->
+                        <div class="tab-pane fade in" id="queryPosition">
+                            <!-- 搜索框 -->
+                            <div class="col-md-12" style="margin-bottom: 20px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="searchQueryPosition" class='special'>货位查询：</label>
+                                        <input type="text" class="form-control" id="searchQueryPosition"placeholder="请输入货位名称">
+                                    </div>
+                                    <button type="button" class="btn btn-primary" style='margin-left:20px; outline: none;' id='searchQueryPositionBtn'>查询</button>
+                                    <button type="button" id="huowei" class="btn btn-primary" data-toggle="modal" data-target="#newPositions" style="outline: none;">新增货位</button>
+                                </form>
+                            </div>
+                            <!-- 表格 -->
+                            <table id="mytable7" class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th>序号</th>
+                                    <th>货位名称</th>
+                                   <!-- <th>上限数量</th>-->
+                                    <th>当前数量</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="margin-top: 15px;" id='page'>
+                    <!-- 分页 -->
+                    <div class="M-box" style='float: right;'></div>                  
+                    <div class="M-box2" style='float: right;display: none;'></div>
+                    <div class="M-box3" style='float: right;display: none;'></div>
+                    <div class="M-box4" style='float: right;display: none;'></div>
+                    <div class="M-box5" style='float: right;display: none;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增用户 -->
+    <div class="modal fade" id="newUser" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearUser()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增用户</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="register">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">账号</label>
+                            <div class="col-md-6">
+                                <input class="form-control userNo" type="text">
+                            </div>
+                            <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanUserNo'>*必填(5至11位 数字)</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input class="form-control userPassword" type="text" value="123456" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">用户名</label>
+                            <div class="col-md-6">
+                                <input class="form-control userName" type="text">
+                            </div>
+                            <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanUsername'>*必填(用户姓名)</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">角色</label>
+                            <div class="col-md-6">
+                                <select id="userDepartment" style='    margin-left: 5px;
+    height: 36px;'>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">手机号码</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control userPhone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">邮箱</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control userEmail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control userRemark">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearUser()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" onclick="addUser()" disabled="disabled" id='saveUser'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑用户 -->
+    <div class="modal fade" id="editor1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearEditUser()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑用户</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">账号</label>
+                            <div class="col-md-6">
+                                <input class="form-control editUserNO"  type="text" value="admin" readonly="readonly">
+                            </div>                          
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="disabledInput" type="text" value="123456" readonly>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">用户名</label>
+                            <div class="col-md-6">
+                                <input class="form-control editUserName" type="text" value="张三" >
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanUsername2'>*必填(用户姓名)</span> 
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">角色</label>
+                            <div class="col-md-6">
+                                <select name="" id="editUserRole" style='margin-left: 5px;
+    height: 36px;' >
+                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">手机号码</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control editUserPhone" value="19952405505">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">邮箱</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control editUserEmail" value="166@qq.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control editUserRemark" value="备注">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearEditUser()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" id='editUser'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除用户 -->
+    <div class="modal fade" id="delete1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除该用户？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="deleteQueryUsers()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- 新增物品 -->
+    <div class="modal fade" id="newGoods" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true"  onclick="clearGood()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增物品</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                       
+                        <!--<div class="form-group">
+                            <label class="col-md-2 control-label">物品名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control goodProductName"  type="text">
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanProductName'>*必填</span>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">物品名称</label>
+                            <div class="col-md-6">
+                                 <select id="goodDepartment" style='    margin-left: 5px;
+    height: 36px;'> 
+      <option value="0">请选择</option>
+    <option value="成品">成品</option>
+    <!-- <option value="半成品">半成品</option>-->
+      <option value="原材料">原材料</option>
+       <option value="空托盘">空托盘</option>
+                                </select>
+                                
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanProductName'>*必选</span>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">规格</label>
+                            <div class="col-md-6">
+                                <input class="form-control goodFormatNo"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">单位</label>
+                            <div class="col-md-6">
+                                <input class="form-control goodUnit" type="text">
+                            </div>
+                        </div>                      
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control goodRemark"  type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearGood()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" onclick="addGood()" disabled="disabled" id='saveGood'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑物品 -->
+    <div class="modal fade" id="editorGoods" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑物品</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">物品编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editproductNo" type="text" value="001" readonly="readonly">
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-md-2 control-label">物品名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editproductName" type="text" value="汾酒保健酒">
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">物品名称</label>
+                            <div class="col-md-6">
+                                 <select id="editgoodDepartment" style='    margin-left: 5px;
+    height: 36px;'> 
+      <option value="0">请选择</option>
+    <option value="成品">成品</option>
+    <!-- <option value="半成品">半成品</option>-->
+      <option value="原材料">原材料</option>
+       <option value="空托盘">空托盘</option>
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-md-2 control-label">商品类型</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editgoodsCategory" type="text" value="保健酒">
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">规格</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editformatNo" type="text" value="250ml">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">单位</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editunit" type="text" value="箱">
+                            </div>
+                        </div>                       
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editremark" type="text" value="备注">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" id='editGoods'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 删除物品 -->
+    <div class="modal fade" id="delete3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除该物品？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="deleteQueryGoods()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增部门 -->
+    <div class="modal fade" id="newDepartment" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增部门</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">部门编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">部门名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">负责人</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑部门 -->
+    <div class="modal fade" id="editorDepartment" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑部门</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">部门编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text" value="bm001">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">部门名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text" value="部门1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">负责人</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text" value="张三">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text" value="备注">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增仓库 -->
+    <div class="modal fade" id="newStore" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true"  onclick="clearWarehouse()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增仓库</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control warehouseNo"  type="text">
+                            </div>
+                              <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanWarehouseNo'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control warehouseName"  type="text">
+                            </div>
+                              <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanWarehouseName'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库地址</label>
+                            <div class="col-md-6">
+                                <input class="form-control warehouseAddress"  type="text">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control warehouseRemark"  type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearWarehouse()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" onclick="addWarehouse()" id='saveWarehouse' disabled="disabled">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑仓库 -->
+    <div class="modal fade" id="editorStore" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearEditWarehouse()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑仓库</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editwarehouseNo" type="text" value="ck001">
+                            </div>
+                                                         <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanEditwarehouseNo'>*必填</span> 
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editwarehouseName" type="text" value="甲">
+                            </div>
+                                                         <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanEditwarehouseName'>*必填</span> 
+                        </div>
+                         <div class="form-group">
+                            <label class="col-md-2 control-label">仓库地址</label>
+                            <div class="col-md-6">
+                                <input class="form-control"  type="text" id="editwarehouseAddress" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="editwarehouseRemark" type="text" value="备注">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearEditWarehouse()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" id='editWarehouse'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除仓库 -->
+    <div class="modal fade" id="delete4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除该仓库？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="deleteWarehouse()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增库区 -->
+    <div class="modal fade" id="newReservoir" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearArea()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增库区</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                    	 <div class="form-group">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <select class="warehouseNo1" style='    margin-left: 5px;
+    height: 36px;'>
+                                    
+                                  
+                                </select>
+                            </div>
+                              <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanWarehouseNo1'>*必选</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">库区编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control areaNo"  type="text">
+                            </div>
+                              <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanAreaNo'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">库区名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control areaName"  type="text">
+                            </div>
+                            <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanAreaName'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control areaRemark"  type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearArea()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" onclick='addArea()' id='saveArea'disabled="disabled">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑库区 -->
+    <div class="modal fade" id="editorReservoir" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearEditArea()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑库区</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                       
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <select class="warehouseNo1" style='    margin-left: 5px;
+    height: 36px;' id='editwarehouseNo2' >
+                                    
+                                  
+                                </select>
+                            </div>
+                              <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spaneditwarehouseNo2'>*必选</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">库区编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editAreaNo'readonly="readonly">
+                            </div>
+                     <!--         <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanAreaNo2'>*必填</span>-->
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">库区名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editAreaName'>
+                            </div>
+                            <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanAreaName2'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editAreaRemark'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearEditArea()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" id='editArea'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除库区 -->
+    <div class="modal fade" id="delete5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除该库区？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="deleteArea()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>	
+    
+    	<!--新增货位-->
+    	<div class="modal fade" id="newPositions" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearLocation()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增货位</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                    	                 	 <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <select class="warehouseNo1" style='    margin-left: 5px;
+    height: 36px;'>
+                                    
+                                  
+                                </select>
+                            </div>
+                           <!--  <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanWarehouseNo2'>*必选</span>-->
+                        </div>
+                    	 <div class="form-group " style="display: none;">
+                            <label class="col-md-2 control-label">库区名称</label>
+                            <div class="col-md-6">
+                                <select class="areaNo1" style='    margin-left: 5px;
+    height: 36px;'>
+                                <option>请选择</option>
+                            
+                                  
+                                </select>
+                            </div>
+                           <!--  <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanAreaName3'>*必选</span>-->
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">货位编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control allocationNo"  type="text" placeholder="请按照01-01-01格式填写">
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanallocationNo'>*必填</span>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-md-2 control-label">货位名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control allocationName"  type="text">
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanallocationName'>*必填</span>
+                        </div>-->
+                         <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">货位状态</label>
+                            <div class="col-md-6">
+                                <input class="form-control allocationStatus"  type="text">
+                            </div>
+                        </div>
+                         <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">存量上限</label>
+                            <div class="col-md-6">
+                                <input class="form-control allocationFormat"  type="text" value="1">
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;" id='spanallocationFormat'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control allocationRemark"  type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearLocation()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" onclick='addLocation()' id='saveLocation' disabled="disabled">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- 编辑货位 -->
+   <div class="modal fade" id="editorLocation" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true" onclick="clearEditeditorLocation()">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑货位</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" >
+                    	                 	 <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">仓库名称</label>
+                            <div class="col-md-6">
+                                <select class="warehouseNo1" style='    margin-left: 5px;
+    height: 36px;' id='locationWarehouse'>
+                                    
+                                  
+                                </select>
+                            </div>
+ <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanlocationWarehouse'>*必选</span>
+                        </div>
+                    	 <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">库区名称</label>
+                            <div class="col-md-6">
+                                <select class="areaNo2" style='    margin-left: 5px;
+    height: 36px;' id='locationArea'>
+                                <option>请选择</option>
+                            
+                                  
+                                </select>
+                            </div>
+ <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spanAreaName4'>*必选</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">货位编号</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editallocationNo'readonly="readonly">
+                            </div>
+                             
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">货位名称</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editallocationName'>
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spaneditallocationName'>*必填</span>
+                        </div>
+                         <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">货位状态</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editallocationStatus'>
+                            </div>
+                        </div>
+                         <div class="form-group" style="display: none;">
+                            <label class="col-md-2 control-label">存量上限</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" value="1"id='editallocationFormat'>
+                            </div>
+                             <span style="height: 34px; line-height: 34px; color: red;font-size: 12px;display: none;" id='spaneditallocationFormat'>*必填</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">当前数量</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editallocationFormat2' readonly="readonly">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input class="form-control "  type="text" id='editallocationRemark'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;" onclick="clearEditeditorLocation()">关闭</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;" data-dismiss="modal" id='editAllocation'>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 删除货位 -->
+    <div class="modal fade" id="delete6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除该货位？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="deletePosition()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 个人信息 -->
+    <div class="modal fade" id="personalInformation" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" style="outline: none;" class="close" data-dismiss="modal" aria-label="Close" onclick="closeWindow()" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">个人信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="information">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">账号</label>
+                            <div class="col-md-6">
+                                <input type="text" id="userId" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">用户名</label>
+                            <div class="col-md-6">
+                                <input type="text" id="userName" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">角色</label>
+                            <div class="col-md-6">
+                                <select name="" id="multiSelect2" disabled>
+                                    <option value="0">管理员</option>
+                                    <option value="1">普通用户</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">手机号码</label>
+                            <div class="col-md-6">
+                                <input type="text" id="phone" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">邮箱</label>
+                            <div class="col-md-6">
+                                <input type="text" id="email" disabled class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">备注</label>
+                            <div class="col-md-6">
+                                <input type="text" id="remark" disabled class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button style="outline: none;" type="button" class="btn btn-default" data-dismiss="modal" onclick="restoreSettings()" style="outline: none;">关闭</button>
+                    <button style="outline: none;" type="button" class="btn btn-primary" id="informationEditor" onclick="myEditor()" style="outline: none;">编辑</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出登录 -->
+    <div class="modal fade" id="logOut" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">退出登录</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认退出此次登录？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;" onclick="exitLogon()">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改密码 -->
+    <div class="modal fade" id="changePassword" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="editorPwd">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">原密码</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" placeholder="原密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">新密码</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" placeholder="新密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">确认密码</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" placeholder="确认密码">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary save" style="outline: none;" onclick="changePwd()" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./lib/jquery/jquery-1.10.2.js"></script>
+    <script src='./lib/bootstrap/dist/js/bootstrap.js'></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/index.js"></script>
+    <!-- 公用的方法 -->
+    <script src="./js/common.js"></script>
+    <script src="./js/sidebarAnimation.js"></script>
+    <script src='./js/godownManage.js'></script>
+     <!-- cookie会话存储 -->
+    <script src="./js/cookie.js"></script>
+          <!-- 文字左右滚动 -->
+    <script src="./js/jquery.kxbdMarquee.js" type="text/javascript" charset="utf-8"></script>
+    <script src='./js/basicInformation.js'></script>
+    <!--<script src="./js/laydate.js"></script>-->
+
+    <!-- 分页 -->
+    <script src='./lib/pagination/script/jquery.pagination.js'></script>
+
+    <script>
+    	 // 文字左右滚动
+        (function() {
+            $("#marquee2").kxbdMarquee({
+                isEqual: false
+            });
+        })();
+//      ! function() {
+//          laydate.skin('molv'); //切换皮肤，请查看skins下面皮肤库
+//          laydate({
+//              elem: '#startTime1',
+//              // istime: true,
+//              // format: 'YYYY-MM-DD hh:mm:ss',
+//              // min: laydate.now() //-1代表昨天，-2代表前天，以此类推
+//          });
+//          laydate({
+//              elem: '#startTime2'
+//          });
+//          laydate({
+//              elem: '#startTime3'
+//          });
+//          laydate({
+//              elem: '#startTime4'
+//          });
+//          laydate({
+//              elem: '#startTime5'
+//          });
+//          laydate({
+//              elem: '#startTime6'
+//          });
+//      }();
+//
+//      $(function() {
+//          $('#daochu1').click(function() {
+//              $("#mytable1").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//          $('#daochu2').click(function() {
+//              $("#mytable2").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//          $('#daochu3').click(function() {
+//              $("#mytable3").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//          $('#daochu4').click(function() {
+//              $("#mytable4").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//          $('#daochu5').click(function() {
+//              $("#mytable5").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//          $('#daochu6').click(function() {
+//              $("#mytable6").table2excel({
+//                  exclude: ".noExl",
+//                  name: "Excel Document Name",
+//                  filename: "下载",
+//                  exclude_img: true,
+//                  exclude_links: true,
+//                  exclude_inputs: true
+//              });
+//          })
+//      })
+    </script>
+</body>
+
+</html>

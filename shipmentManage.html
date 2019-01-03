@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>出库任务管理</title>
+    <link rel="stylesheet" href="./css/alert.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <!-- 左边的侧边栏 -->
+    <div class="aside" id="aside">
+        <!-- 左上部分的用户信息 -->
+        <div class="profile">
+            <div class="avatar" id="aa">
+                <img src="./images/head.jpg" alt="" class='img-circle'>
+            </div>
+            <h4>小仙女</h4>
+        </div>
+
+        <!--左下部分的导航-->
+        <div class="menu">
+            <ul>
+                <li>
+                    <a class="slide" style="cursor: pointer;">入库单<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">出库单<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">盘点单</a></li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">位置<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">货载<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">任务<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">流水</a></li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">系统<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">物料结存<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="slide" style="cursor: pointer;">数据工具<span class='arrow fa fa-angle-right pull-right'></span></a>
+                    <ul style="display: none;" id="show" class="xz">
+                        <li><a href="javascript:;">1</a> </li>
+                        <li><a href="javascript:;">2</a> </li>
+                        <li><a href="javascript:;">3</a> </li>
+                        <li><a href="javascript:;">4</a> </li>
+                        <li><a href="javascript:;">5</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 右边主体部分 -->
+    <div class="main">
+        <!-- 右边上部分工具部分 -->
+        <div class="header">
+            <!-- 导航条部分 -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="javascript:;"><span class='fa fa-navicon'></span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a data-toggle="modal" data-target="#personalInformation"> <span class='fa fa-user-circle'></span> 个人中心</a>
+                            </li>
+                            <li><a data-toggle="modal" data-target="#changePassword"><span class='fa fa-key fa-fw'></span>修改密码</a></li>
+                            <li><a data-toggle="modal" data-target="#logOut"><span class='fa fa-sign-out'></span>退出</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+
+        </div>
+
+        <!-- 右边下部分 ，网站的主体页面-->
+        <div class="body">
+            <!-- 面包屑导航 -->
+            <ol class="breadcrumb">
+                <!-- <li>首页</li> -->
+                <li>出库任务管理</li>
+            </ol>
+            <!-- 面板，搜索框与表格 -->
+            <div class="panel panel-default">
+
+                <div class="panel-body" style="margin-top: 15px;">
+
+                    <!-- 搜索框 -->
+                    <div class="col-md-12">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="exampleInputName2">编码：</label>
+                                <input type="text" class="form-control" id="exampleInputName2">
+                            </div>
+                            <label for='notice' style='margin-left:10px'> 备注：</label>
+                            <input type="text" class="form-control" id="notice">
+                            <label for="exampleInputName3" style='margin-left:10px'> 每页：</label>
+                            <select class="form-control" id="exampleInputName3">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                  </select>
+                            <button type="submit" class="btn btn-primary" style='margin-left:20px'>查询</button>
+                            <button type="submit" class="btn btn-primary" style='margin-left:5px'>重置</button>
+                            <input type="button" class='btn btn-primary pull-right' data-toggle="modal" data-target="#shipment" style="outline: none;" value="添加手工出库单">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="panel-body" style="margin-top: 15px;">
+                    <!-- 表格 -->
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <th>ID</th>
+                            <th>单据编号</th>
+                            <th>创建时间</th>
+                            <th>创建人</th>
+                            <th>状态</th>
+                            <th>备注</th>
+                            <th>操作</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>011</td>
+                                <td>2014-07-16 13:21:39</td>
+                                <td>admin</td>
+                                <td>正在出库</td>
+                                <td></td>
+                                <td>
+                                    <a class="btn btn-success" data-toggle="modal" data-target="#detail" style="outline: none;">详细</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>011</td>
+                                <td>2014-07-16 13:21:39</td>
+                                <td>admin</td>
+                                <td>正在出库</td>
+                                <td></td>
+                                <td>
+                                    <a class="btn btn-success" data-toggle="modal" data-target="#check" style="outline: none;">详细</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>011</td>
+                                <td>2014-07-16 13:21:39</td>
+                                <td>admin</td>
+                                <td>正在出库</td>
+                                <td></td>
+                                <td>
+                                    <a class="btn btn-success" data-toggle="modal" data-target="#check" style="outline: none;">详细</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>011</td>
+                                <td>2014-07-16 13:21:39</td>
+                                <td>admin</td>
+                                <td>正在出库</td>
+                                <td></td>
+                                <td>
+                                    <a class="btn btn-success" data-toggle="modal" data-target="#check" style="outline: none;">详细</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- 分页 -->
+                    <div class="row">
+                        <nav class="page col-md-4 col-md-offset-8" aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 创建手工出库单 -->
+    <div class="modal fade" id="shipment" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">创建手工出库单</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="formInformation">
+                        <div class="form-group">
+                            <label for='outMark' class="col-md-2 control-label">出库口编码</label>
+                            <div class="col-md-8">
+                                <select class="form-control" id="outMark">
+                                            <option>请选择出库口</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                          </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='good' class="col-md-2 control-label">单据编号</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='good' autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='remark' class="col-md-2 control-label">备注</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='remark' autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="buy" class="col-md-2 control-label">物料明细</label>
+                            <div class="col-md-8">
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th style="width:65px!important;text-align: center;">编码</th>
+                                            <th style="width:80px!important;text-align: center;"> 物料名称</th>
+                                            <th style="width:65px!important;text-align: center;">规格</th>
+                                            <th style="width:65px!important;text-align: center;">数量</th>
+                                            <th style="width:65px!important;text-align: center;">单位</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='removeOne'>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" value='添加明细行' style="outline: none;" id='tableAddIn3'>
+                    <input type="button" class="btn btn-default" value='返回' style="outline: none;" id='tableRemove'>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary save" style="outline: none;" onclick="saveUser()" data-dismiss="modal" id="addAccessory">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 详细 -->
+    <div class="modal fade" id="detail" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">您正在进行出库确认操作</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="formInformation">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">单据编号</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="disabledInput" type="text" placeholder=" 0916005" disabled>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">当前位置</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="disabledInput" type="text" placeholder=" (无)" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label class="col-md-2 control-label">订单明细</label> -->
+                            <div class="col-md-12">
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th style="width:50px!important;text-align: center;">ID</th>
+                                            <th style="width:80px!important;text-align: center;">物料</th>
+                                            <th style="width:80px!important;text-align: center;">规格</th>
+                                            <th style="width:50px!important;text-align: center;">库存数量</th>
+                                            <th style="width:50px!important;text-align: center;">应出数量</th>
+                                            <th style="width:50px!important;text-align: center;">实出数量</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="text-center ">
+                                            <td style='height:35px;line-height:35px'>208</td>
+                                            <td style='height:35px;line-height:35px'>Q15扶手</td>
+                                            <td style='height:35px;line-height:35px'></td>
+                                            <td style='height:35px;line-height:35px'>400pc</td>
+                                            <td style='height:35px;line-height:35px'>100pc</td>
+                                            <td>
+                                                <input class="form-control " type="text" style="width:50%;display:inline-block" autocomplete="off">
+                                                <span>pc</span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary save" style="outline: none;" onclick="saveUser()" data-dismiss="modal" id="addAccessory">确认出库</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- delete -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">是否删除？</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认删除本行数据？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="outline: none;">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 个人信息 -->
+    <div class="modal fade" id="personalInformation" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" style="outline: none;" class="close" data-dismiss="modal" aria-label="Close" onclick="closeWindow()" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">个人信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="formInformation">
+                        <div class="form-group">
+                            <label class="col-md-2">账号</label>
+                            <div class="col-md-6">
+                                <input type="text" id="userId" disabled class="form-control" value="111111">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">用户名</label>
+                            <div class="col-md-6">
+                                <input type="text" id="userName" disabled class="form-control" value="张三">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">部门</label>
+                            <div class="col-md-6">
+                                <select name="" id="multiSelect" disabled>
+                                    <option value="就管中心">就管中心</option>
+                                    <option value="社保中心">社保中心</option>
+                                    <option value="劳动监察">劳动监察</option>
+                                    <option value="劳动人事争议仲裁院">劳动人事争议仲裁院</option>
+                                    <option value="人事处">人事处</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">角色</label>
+                            <div class="col-md-6">
+                                <select name="" id="multiSelect" disabled>
+                                            <option value="管理员">管理员</option>
+                                            <option value="普通用户">普通用户</option>
+                                        </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">手机号码</label>
+                            <div class="col-md-6">
+                                <input type="text" id="phone" disabled class="form-control" value="18188888888">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">备注</label>
+                            <div class="col-md-6">
+                                <input type="text" id="remark" disabled class="form-control" value="我是管理员" placeholder="产品型号">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button style="outline: none;" type="button" class="btn btn-default" data-dismiss="modal" onclick="restoreSettings()" style="outline: none;">关闭</button>
+                    <button style="outline: none;" type="button" class="btn btn-primary" id="informationEditor" onclick="myEditor()" style="outline: none;">编辑</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出登录 -->
+    <div class="modal fade" id="logOut" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">退出登录</h4>
+                </div>
+                <div class="modal-body">
+                    您是否确认退出此次登录？
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">取消</button>
+                    <button type="button" class="btn btn-primary" style="outline: none;">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改密码 -->
+    <div class="modal fade" id="changePassword" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="outline: none;"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="formInformation">
+                        <div class="form-group">
+                            <label for="username" class="col-md-2 control-label">用户名</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='username' autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="truename" class="col-md-2 control-label">真实姓名</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='truename' autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-2 control-label">密码</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='password' autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">角色</label>
+                            <div class="col-md-8">
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" name='radio'> admins
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" name='radio'> 仓管
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="remark" class="col-md-2 control-label">备注</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id='remark' autocomplete="off">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="outline: none;">关闭</button>
+                    <button type="button" class="btn btn-primary save" style="outline: none;" onclick="saveUser()" data-dismiss="modal" id="addAccessory">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./lib/jquery/jquery-1.10.2.js"></script>
+    <script src='./lib/bootstrap/dist/js/bootstrap.js'></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/sidebarAnimation.js"></script>
+    <script src='./js/godownManage.js'></script>
+</body>
+
+</html>

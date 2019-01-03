@@ -1,0 +1,265 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 表格内容垂直居中
+ */
+
+table tr td {
+    vertical-align: middle!important;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+}
+
+html body {
+    background-color: #f4f6f8;
+}
+
+.aside {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2f4050;
+}
+
+.aside .profile {
+    background-color: #243443;
+    padding-bottom: 15px;
+}
+
+.aside .profile .avatar {
+    text-align: center;
+    padding: 30px 0 10px;
+}
+
+.aside .profile img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.aside .profile h4 {
+    color: #a9b0c2;
+    text-align: center;
+}
+
+.aside .menu {
+    margin-top: 20px;
+}
+
+.aside .menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.aside .menu li {
+    list-style: none;
+    padding: 2px 0;
+}
+
+.aside .menu li a {
+    display: block;
+    line-height: 2.5;
+    padding: 6px 35px;
+    color: #a9b0c2;
+    text-decoration: none;
+    font-size: 16px;
+    /* font-weight: bolder; */
+}
+
+.aside .menu li a:hover {
+    color: #f6f6f6;
+    background-color: #243443;
+}
+
+.aside .menu ul li ul li a:hover {
+    color: #f6f6f6;
+    background-color: #243443 !important;
+}
+
+.aside .menu li.active a {
+    color: #f6f6f6;
+    background-color: #243443;
+}
+
+.department ul li {
+    list-style: none;
+}
+
+.department ul li a {
+    padding-left: 20px;
+    width: 50%;
+    display: block;
+    height: 2em;
+    line-height: 2em;
+    text-decoration: none;
+    font-size: 16px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.department ul li a:hover {
+    background-color: #e4e3e3;
+}
+
+.department ul li ul li {
+    width: 40%;
+    padding-left: 10px;
+}
+
+.department ul li ul li:hover {
+    background-color: #f5f5f5;
+}
+
+.department ul li a img {
+    margin-bottom: 4px;
+}
+
+.aside .menu li a span {
+    margin-top: 11px;
+}
+
+.aside .menu li li a {
+    padding-left: 50px;
+}
+
+.main {
+    /* background-color: #f4f6f8; */
+    height: 100%;
+    margin-left: 180px;
+}
+
+.main .header .navbar {
+    background-color: #fff;
+}
+
+.main .header .navbar a {
+    color: #337AB7;
+}
+
+.main .body {
+    padding: 0 20px;
+}
+
+.main .body .breadcrumb,
+.main .body .panel {
+    background-color: #fff;
+    border: 1px solid #E7E7E7;
+}
+
+.main .body .panel-body {
+    padding: 6px;
+}
+
+.main .body table th {
+    font-weight: bold;
+}
+
+.main .body table th,
+.main .body table td {
+    /* font-weight: normal; */
+    text-align: center;
+}
+
+select {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 3rem;
+    outline: none;
+}
+
+select:disabled {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.header ul li a {
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* 入库单管理创建入库单 */
+
+.outLINE {
+    border: 0;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+#removeOne select {
+    width: 80px;
+    height: 28px;
+    font-size: 13px;
+}
+
+#removeOne4 select {
+    width: 80px;
+    height: 28px;
+    font-size: 13px;
+}
+
+
+/*分页插件与基本信息账号查询样式冲突解决*/
+
+.special {
+    float: left;
+    margin-top: 7px;
+}
+
+.outLINE {
+    border: 0;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* 文字滚动 */
+
+#marquee2 {
+    position: absolute;
+    top: 10px;
+    right: 60%;
+    /* width: 700px; */
+    width: 100px;
+    height: 25px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#marquee2 ul li {
+    float: left;
+    padding: 5px 20px 10px 20px;
+    font-size: 14px;
+    list-style: none;
+}
+
+#marquee2 ul li a {
+    color: red;
+}
+
+#marquee2 ul li a:hover {
+    text-decoration: none;
+}

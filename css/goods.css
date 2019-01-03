@@ -1,0 +1,110 @@
+/* 页面加载字体大小 */
+
+#load {
+    font-size: 12px;
+}
+
+#load label {
+    margin-left: 15px;
+}
+
+.good img {
+    width: 28px;
+    height: 28px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    bottom: 0px;
+}
+
+.son {
+    position: relative;
+    width: 26px;
+    height: 29px;
+    background-color: #fff;
+    border: 1px solid rgb(182, 180, 180);
+    margin-left: 4px;
+}
+
+.father {
+    width: 92%;
+    height: 193px;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.fr {
+    float: left;
+}
+
+.goodRow {
+    height: 40px;
+    margin-top: 5px;
+    padding: 0 5px;
+}
+
+
+/* .green {
+    background-color: #57f057!important;
+}
+
+.warning {
+    background-color: #f80800;
+} */
+
+fieldset {
+    padding: .35em .625em .75em;
+    margin: 0 2px;
+    border: 1px solid silver;
+}
+
+legend {
+    padding: .5em;
+    border: 0;
+    width: auto
+}
+
+.formOne,
+.formTwo,
+.formFour {
+    width: 20%;
+}
+
+
+/* 快速信息 */
+
+.formThree {
+    width: 30%;
+    margin-left: 70px
+}
+
+.formThree input {
+    width: 70%;
+    display: inline-block;
+}
+
+
+/* 快速信息 */
+
+.hide {
+    display: none;
+}
+
+.panel-body #load,
+.slider-rulelabel span {
+    color: #a9b0c2;
+}
+
+.slider-inner {
+    border-color: #a9b0c2;
+    background: #a9b0c2;
+}
+
+.slider-rule span {
+    border-color: #a9b0c2;
+}
+
+.panel-body #choose {
+    color: #000;
+}
